@@ -12,10 +12,7 @@ function Scheduler(props) {
     })
   }, [setCellWidth]);
   const handleBeforeRowHeaderDomAdd = useCallback((args) => {
-    console.log(args)
-
-    args.element =
-        <EmptyResource />
+    args.element = <EmptyResource />
   }, []);
 
     return (<>
