@@ -1,17 +1,16 @@
 import {DayPilotScheduler} from "daypilot-pro-react";
 import EmptyResource from './EmptyResource';
-import {defaultSchedulerConfig} from './config'
 import { useCallback, useState } from 'react';
 
 function Scheduler(props) {
   
-  const [key, setKey] = useState(40);
+  const [cellWidth, setCellWidth] = useState(40);
 
-  const incrementKey = useCallback(() => {
-    setKey((currentKey) => {
-      return currentKey+10;
+  const incrementCellWidth = useCallback(() => {
+    setCellWidth((currentWidth) => {
+      return currentWidth+10;
     })
-  }, [setKey]);
+  }, [setCellWidth]);
   const handleBeforeRowHeaderDomAdd = useCallback((args) => {
     console.log(args)
 
@@ -20,7 +19,7 @@ function Scheduler(props) {
   }, []);
 
     return (<>
-      <button onClick={incrementKey}>ttteeeesssttt</button>
+      <button onClick={incrementCellWidth}>ttteeeesssttt</button>
       <DayPilotScheduler
                 resources = {[
                 {name: "Resource A", id: "A"},
@@ -32,8 +31,7 @@ function Scheduler(props) {
                 {name: "Resource G", id: "G"}
             ]}
             onBeforeRowHeaderDomAdd={handleBeforeRowHeaderDomAdd}
-            {...defaultSchedulerConfig}
-            cellWidth={key}
+            cellWidth={cellWidth}
         /></>
             
     );
