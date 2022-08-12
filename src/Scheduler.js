@@ -16,7 +16,7 @@ function Scheduler(props) {
   }, []);
 
     return (<>
-      <button onClick={incrementCellWidth}>ttteeeesssttt</button>
+      <button onClick={incrementCellWidth}>Set cell width</button>
       <DayPilotScheduler
                 resources = {[
                 {name: "Resource A", id: "A"},
