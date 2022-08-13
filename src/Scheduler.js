@@ -22,6 +22,12 @@ function Scheduler(props) {
     }
   }, []);
 
+  const justUpdate = useCallback(() => {
+    if (ref.current) {
+      ref.current.control.update();
+    }
+  }, []);
+
 
   const handleBeforeRowHeaderDomAdd = useCallback((args) => {
     args.element = <EmptyResource />
@@ -30,6 +36,7 @@ function Scheduler(props) {
     return (<>
       <button onClick={incrementCellWidth}>Set cell width</button>
       <button onClick={incrementCellWidthREF}>Set cell width REF</button>
+      <button onClick={justUpdate}>Just UPDATE</button>
       <DayPilotScheduler
       ref={ref}
                 resources = {[
